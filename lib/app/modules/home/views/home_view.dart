@@ -89,8 +89,16 @@ class HomeView extends GetView<HomeController> {
             child: Row(
               children: [
                 SizedBox(width: 30),
-                CustomContentWidget(),
-                CustomContentWidget(),
+                CustomContentWidget(
+                  image: 'assets/image_avatar.png',
+                  title: 'Avatar',
+                  rating: 'assets/image_rating.png',
+                ),
+                CustomContentWidget(
+                  image: 'assets/image_joker.png',
+                  title: 'Joker',
+                  rating: 'assets/image_rating2.png',
+                ),
                 SizedBox(width: 30),
               ],
             ),

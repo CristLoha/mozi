@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mozi/shared/theme.dart';
 
 class CustomContentWidget extends StatelessWidget {
+  final String image;
+  final String title;
+  final String rating;
   const CustomContentWidget({
     Key? key,
+    required this.image,
+    required this.title,
+    required this.rating,
   }) : super(key: key);
 
   @override
@@ -21,7 +27,7 @@ class CustomContentWidget extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  'assets/image_avatar.png',
+                  image,
                 ),
                 fit: BoxFit.cover,
               ),
@@ -29,14 +35,14 @@ class CustomContentWidget extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Avatar',
+            title,
             style: whiteTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
             ),
           ),
           Image.asset(
-            'assets/image_rating.png',
+            rating,
             width: 98,
             height: 18,
           ),
