@@ -14,40 +14,25 @@ class CustomContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: marginDefault, right: 30),
-      width: 190,
-      height: 306,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 15),
+          child: Image.asset(
+            image,
             width: 190,
             height: 250,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  image,
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
           ),
-          SizedBox(height: 10),
-          Text(
-            title,
-            style: whiteTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: medium,
-            ),
+        ),
+        Text(
+          title,
+          style: whiteTextStyle.copyWith(
+            fontWeight: medium,
+            fontSize: 16,
           ),
-          Image.asset(
-            rating,
-            width: 98,
-            height: 18,
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

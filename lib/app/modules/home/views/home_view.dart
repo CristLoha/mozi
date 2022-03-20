@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:mozi/models/list_movie.dart';
 import 'package:mozi/shared/theme.dart';
 
 import '../../../widgets/custom_content_widget.dart';
@@ -86,21 +87,26 @@ class HomeView extends GetView<HomeController> {
           //content movie
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                SizedBox(width: 30),
-                CustomContentWidget(
-                  image: 'assets/image_avatar.png',
-                  title: 'Avatar',
-                  rating: 'assets/image_rating.png',
-                ),
-                CustomContentWidget(
-                  image: 'assets/image_joker.png',
-                  title: 'Joker',
-                  rating: 'assets/image_rating2.png',
-                ),
-                SizedBox(width: 30),
-              ],
+            padding: EdgeInsets.only(left: 30, right: 15, top: 12),
+            child: Container(
+              height: 320,
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: allMovie.length,
+                itemBuilder: (context, index) {
+                  ListMovie movie = allMovie[index];
+                  return GestureDetector(
+                    onTap: () {},
+                    child: CustomContentWidget(
+                      image: movie.image,
+                      title: movie.titleMovie,
+                      rating: movie.rating,
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],
@@ -110,6 +116,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: kBlackColor,
       body: ListView(
+        physics: const ScrollPhysics(),
         children: [
           header(),
           contentHorizontal(),
